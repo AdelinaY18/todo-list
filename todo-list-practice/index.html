@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Todo List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="js/app.js" defer ></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="app">
+    <section class="card">
+      <header class="card__header">
+        <h1>Todo List</h1>
+        <p>Керуйте задачами в зручному темному інтерфейсі</p>
+      </header>
+
+      <form class="todo-form">
+        <div class="field-group">
+          <label for="taskInput">Нова задача</label>
+          <input id="taskInput" name="task" type="text" placeholder="Наприклад: Підготувати презентацію">
+        </div>
+        <p class="form-error" role="alert" aria-live="polite"></p>
+
+        <div class="form-row">
+          <div class="field-group">
+            <span class="category-label">Категорія</span>
+            <div class="filter-buttons category-buttons" aria-label="Вибір категорії">
+              <button type="button" class="btn category-btn active" data-category="work">Робота</button>
+              <button type="button" class="btn category-btn" data-category="study">Навчання</button>
+              <button type="button" class="btn category-btn" data-category="home">Дім</button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Додати</button>
+        </div>
+      </form>
+      <section class="search">
+        <label for="searchInput">Пошук</label>
+        <input id="searchInput" type="text" placeholder="Пошук по назві задачі...">
+      </section>
+
+      <section class="filters">
+        <h2>Фільтр</h2>
+        <div class="filter-buttons">
+          <button type="button" class="btn filter-btn active" data-filter="all">Усі</button>
+          <button type="button" class="btn filter-btn" data-filter="undone">Не виконані</button>
+          <button type="button" class="btn filter-btn" data-filter="done">Виконані</button>
+        </div>
+      </section>
+
+      <ul class="task-list">
+        <!-- <li class="task-item">
+          <h3 class="task-title">Підготувати презентацію</h3>
+          <span class="task-category">Робота</span>
+          <button class="icon-btn delete" type="button">Видалити</button>
+        </li> -->
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

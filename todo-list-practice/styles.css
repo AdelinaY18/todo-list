@@ -1,0 +1,256 @@
+:root {
+  --bg: #0f111a;
+  --bg-soft: #171a28;
+  --card: #1d2133;
+  --text: #eef1ff;
+  --muted: #aeb5d6;
+  --accent: #7c8bff;
+  --accent-hover: #6c7dfc;
+  --danger: #ff6b81;
+  --success: #3ddc97;
+  --border: #2a3050;
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(124, 139, 255, 0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(61, 220, 151, 0.1), transparent 30%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(760px, 100%);
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.02), transparent 45%), var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.card__header h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+}
+
+.card__header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.todo-form {
+  margin-top: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.category-label {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.category-btn.active {
+  background: rgba(124, 139, 255, 0.2);
+  border-color: var(--accent);
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 139, 255, 0.2);
+}
+
+.category-buttons {
+  gap: 10px;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.form-error {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--danger);
+}
+
+
+.btn-primary {
+  padding: 12px 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.filters {
+  margin-top: 24px;
+}
+
+.filters h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  background: var(--bg-soft);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 9px 13px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background: rgba(124, 139, 255, 0.2);
+  border-color: var(--accent);
+}
+
+.task-list {
+  margin: 22px 0 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.task-item {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: start;
+}
+
+.task-item.completed {
+  opacity: 0.82;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-title {
+  margin: 0;
+  grid-area: title;
+  font-size: 0.98rem;
+}
+
+.task-category {
+  grid-area: category;
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.icon-btn {
+  grid-area: delete;
+  padding: 7px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #222741;
+  color: var(--text);
+}
+
+.icon-btn.delete {
+  color: #ffdbe1;
+  background: rgba(255, 107, 129, 0.16);
+  border-color: rgba(255, 107, 129, 0.34);
+}
+
+.icon-btn.delete:hover {
+  background: rgba(255, 107, 129, 0.22);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    gap: 8px;
+    flex-direction: column;
+  }
+}
